@@ -1,4 +1,5 @@
 #pragma once
+#include "Tree.h"
 class Node {
 	friend class Tree; //acces to private atribute
 
