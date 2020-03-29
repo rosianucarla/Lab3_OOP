@@ -12,12 +12,11 @@ int main()
     tr.insert(tr.radacina, 5);
     tr.insert(tr.radacina, 4);
     tr.insert(tr.radacina, 10);
-    tr.insert(tr.radacina, 11);
-    tr.insert(tr.radacina, 12);
-    tr.insert(tr.radacina, 3);
-    assert(tr.WLR(tr.radacina) == "5 4 3 10 11 12 ");
-    assert(tr.LWR(tr.radacina) == "3 4 5 10 11 12 ");
-    assert(tr.LRW(tr.radacina) == "3 4 12 11 10 5 ");
+    tr.insert(tr.radacina, 19);
+    tr.insert(tr.radacina, 27);
+    assert(tr.WLR(tr.radacina) == "5 4 10 19 27 ");
+    assert(tr.LWR(tr.radacina) == "4 5 10 19 27 ");
+    assert(tr.LRW(tr.radacina) == "4 27 19 10 5 ");
     
 }
 

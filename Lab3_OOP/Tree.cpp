@@ -8,25 +8,25 @@ Tree::Tree() { //Kontruktor
 }
 
 void Tree::insert(Node* tree, int v) {//insert a new node
-    if (radacina == nullptr) {
+    if (radacina == nullptr) { 
         radacina = new Node(v);
     }
     else {
-        Node* ptr = radacina;
-        while (ptr) {
-            if (ptr->val > v) {
-                if (ptr->links == nullptr) {
-                    ptr->links = new Node(v);
+        Node* nod = radacina;
+        while (nod) {
+            if (nod->val > v) {
+                if (nod->links == nullptr) {
+                    nod->links = new Node(v);
                     break;
                 }
-                ptr = ptr->links;
+                nod = nod->links;
             }
-            else if (ptr->val < v) {
-                if (ptr->rechts == nullptr) {
-                    ptr->rechts = new Node(v);
+            else if (nod->val < v) {
+                if (nod->rechts == nullptr) {
+                    nod ->rechts = new Node(v);
                     break;
                 }
-                ptr = ptr->rechts;
+                nod = nod->rechts;
             }
 
 
