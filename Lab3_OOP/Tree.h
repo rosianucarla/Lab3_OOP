@@ -4,17 +4,9 @@
 class Tree {
 	friend class Node;
 
-protected:
-public:
+private:
+	//radacina si functiile sunt private
 	Node* radacina;
-
-	Tree(); //Konstruktor
-
-	void insert(Node* tree, int v);  //insereaza un nod nou
-
-
-	void deletee(int v, Node* tree); //sterge un nod dat ca param
-
 
 	std::string LWR(Node* n); //Inorder (links wurzel rechts)s
 
@@ -22,9 +14,41 @@ public:
 
 	std::string LRW(Node* n); //Postorder
 
-	int countNodes(Node* n); //numar laturi
+	void insert(int v);  //insereaza un nod nou
 
-	int countEdges(Node* n); //inaltimea
+	void deletee(int v); //sterge un nod dat ca param
 
-	int height(Node* n);
+	int countNodes(Node* n); //numar noduri
+
+	int countEdges(Node* n); //numar laturi
+
+	int height(Node* n);//inaltimea
+
+protected:
+public:
+
+	Tree(); //Konstruktor
+
+//pentru a putea accesa radacina si functiile, am creat functii suplimentare publice
+	Node* get_radacina() {
+		return radacina;
+	};
+
+	void call_insert(int v);
+
+
+	void call_delete(int v); 
+
+	std::string call_LWR(); //Inorder (links wurzel rechts)s
+	
+
+	std::string call_WLR(); //Preorder
+
+	std::string call_LRW(); //Postorder
+
+	int call_countNodes(); //numar laturi
+
+	int call_countEdges(); 
+
+	int call_height();//inaltime
 };

@@ -7,7 +7,12 @@ Tree::Tree() { //Kontruktor
 	radacina = nullptr;
 }
 
-void Tree::insert(Node* tree, int v) {//insert a new node
+void Tree::call_insert(int v)
+{
+     insert(v);
+}
+
+void Tree::insert(int v) {//insert a new node
     if (radacina == nullptr) { 
         radacina = new Node(v);
     }
@@ -34,7 +39,12 @@ void Tree::insert(Node* tree, int v) {//insert a new node
     }
 }
 
-void Tree::deletee(int v, Node* tree) {//loschen
+void Tree::call_delete(int v)
+{
+    deletee(v);
+}
+
+void Tree::deletee(int v) {//loschen
     Node* ptr = radacina;
     while (ptr) {
         if (ptr->rechts != nullptr)
@@ -63,6 +73,11 @@ void Tree::deletee(int v, Node* tree) {//loschen
     }
 }
 
+std::string Tree::call_LWR()
+{
+    return LWR(this->radacina);
+}
+
 std::string Tree::LWR(Node* radacina) {//inorder
     if (radacina == NULL)
         return "";
@@ -75,10 +90,25 @@ std::string Tree::WLR(Node* radacina) {//preorder
     return std::to_string(radacina->val) + " " + WLR(radacina->links) + WLR(radacina->rechts);
 }
 
+std::string Tree::call_WLR()
+{
+    return WLR(this->radacina);
+}
+
+std::string Tree::call_LRW()
+{
+    return LRW(this->radacina);
+}
+
 std::string Tree::LRW(Node* radacina) {//postorder
     if (radacina == NULL)
         return "";
     return LRW(radacina->links) + LRW(radacina->rechts)  + std::to_string(radacina->val) + " ";
+}
+
+int Tree::call_countNodes() {
+
+    return countNodes(this->radacina);
 }
 
 int Tree::countNodes(Node* n) {//Knotenanzahl
@@ -88,8 +118,18 @@ int Tree::countNodes(Node* n) {//Knotenanzahl
         return 1 + countNodes(n->links) + countNodes(n->rechts);
 }
 
+int Tree::call_countEdges()
+{
+    return countEdges(this->radacina);
+}
+
 int Tree::countEdges(Node* n) {
-    return countNodes(n) - 1;
+    return countNodes(this->radacina) - 1;
+}
+
+int Tree::call_height() {
+
+    return height(this->radacina);
 }
 
 int Tree::height(Node* n) {

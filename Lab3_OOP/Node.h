@@ -7,7 +7,7 @@ private:
 	int val;
 	Node* links, * rechts;
 
-protected:
+public:
 	Node(int x) {
 		val = x;
 		links = rechts = nullptr;
